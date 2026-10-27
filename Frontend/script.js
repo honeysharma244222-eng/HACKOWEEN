@@ -30,6 +30,8 @@ function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clea
 function note(i,t){S.notes.unshift({i,t,at:now()});S.notes=S.notes.slice(0,30);toast(i+' '+t);save();head()}
 function head(){const u=S.notes.length-S.seen;$('#bd').textContent=u;$('#bd').style.display=u>0?'grid':'none'}
 function nav(){const R=ROLES[S.role];
+document.documentElement.dataset.page=tab;
+document.documentElement.dataset.role=S.role;
 $('#roles').innerHTML=Object.entries(ROLES).map(([k,r])=>`<button class="${S.role==k?'on':''}" data-r="${k}">${r.l}</button>`).join('');
 $('#nav').innerHTML=TABS.filter(t=>R.t.includes(t[0])).map(t=>`<button class="${tab==t[0]?'on':''}" data-t="${t[0]}"><span>${t[1]}</span>${t[2]}</button>`).join('')}
 $('#roles').onclick=e=>{const b=e.target.closest('button');if(b){S.role=b.dataset.r;tab=ROLES[S.role].t[0];save();nav();render()}};
