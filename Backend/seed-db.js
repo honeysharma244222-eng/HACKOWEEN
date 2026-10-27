@@ -1,0 +1,1 @@
+require('./src/db');console.log('Database ready and seeded.');

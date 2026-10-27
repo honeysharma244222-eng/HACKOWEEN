@@ -1,0 +1,7 @@
+{"nodes":[
+["D1","Annapurna Kitchen","donor",60,70,0],["D2","Green Leaf Bakery","donor",315,60,0],["D3","Punjab Dhaba","donor",85,235,0],["D4","Hotel Sunrise","donor",325,225,0],["D5","Royal Banquet Hall","donor",130,175,0],
+["H1","Seva Community Kitchen","hub",150,110,40],["H2","Hope Shelter","hub",260,260,30],["H3","Ashray Orphanage","hub",280,120,25]],
+"partners":[[1,"Ravi K.",200,285],[2,"Aman S.",30,150],[3,"Priya M.",370,150],[4,"Sana D.",200,20]],
+"listings":[["Dal & rice boxes","🍛","D1",24,"free",0,"Meals",1,55],["Fresh bread loaves","🍞","D2",30,"free",0,"Bakery",1,90],["Veg pizza slices","🍕","D4",18,"sub",29,"Meals",1,35],["Salad & fruit cups","🥗","D3",12,"sub",19,"Fresh",1,120],["Chicken curry combo","🍗","D4",10,"sub",49,"Meals",0,16],["Milk & curd packs","🥛","D1",20,"free",0,"Fresh",1,150]],
+"stats":{"meals":1280,"kg":640,"co2":1600},
+"scanSpots":["Wedding lawn","Community fair ground","Banquet hall garden","Temple community hall","Marriage garden"]}

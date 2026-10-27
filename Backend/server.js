@@ -1,0 +1,15 @@
+const express=require('express'),path=require('path'),cfg=require('./src/config'),{auth}=require('./src/middleware/auth'),E=require('./src/services/engine');
+const app=express();app.use(express.json({limit:'100kb'}));
+app.use(express.static(path.join(__dirname,'..','Frontend')));
+app.get('/api/health',(q,s)=>s.json({ok:true}));
+app.use('/api/auth',require('./src/routes/auth'));
+app.use('/api/profile',auth,require('./src/routes/profile'));
+app.use('/api/listings',auth,require('./src/routes/listings'));
+app.use('/api/orders',auth,require('./src/routes/orders'));
+app.use('/api/rescues',auth,require('./src/routes/rescues'));
+app.use('/api/delivery',auth,require('./src/routes/delivery'));
+app.use('/api',auth,require('./src/routes/misc'));
+app.use('/api',(q,s)=>s.status(404).json({error:'Not found'}));
+app.use((e,q,s,n)=>{console.error(e);s.status(500).json({error:'Server error'})});
+setInterval(()=>{try{E.tick()}catch(e){console.error('tick',e)}},2000);
+app.listen(cfg.port,()=>console.log('Grain Grid → http://localhost:'+cfg.port));
