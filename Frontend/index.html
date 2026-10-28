@@ -34,5 +34,13 @@
     <nav id="nav"></nav>
     <script src="script.js"></script>
     <script src="integration.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: "https://graingrid.app.n8n.cloud/webhook/3a064482-e757-4dfa-8f7c-667c9f9c611c/chat"
+	});
+</script>
   </body>
 </html>
