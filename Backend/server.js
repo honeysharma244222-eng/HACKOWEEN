@@ -1,5 +1,12 @@
 const express=require('express'),path=require('path'),cfg=require('./src/config'),{auth}=require('./src/middleware/auth'),E=require('./src/services/engine');
 const app=express();app.use(express.json({limit:'100kb'}));
+app.use((req,res,next)=>{
+  res.header('Access-Control-Allow-Origin','*');
+  res.header('Access-Control-Allow-Methods','GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers','Content-Type, Authorization, x-user-id');
+  if(req.method==='OPTIONS')return res.sendStatus(200);
+  next();
+});
 app.use(express.static(path.join(__dirname,'..','Frontend')));
 app.get('/api/health',(q,s)=>s.json({ok:true}));
 app.use('/api/auth',require('./src/routes/auth'));

@@ -190,7 +190,7 @@ refresh()},400);
 nav();head();render();
 /* ---------- MY PROFILE (load BEFORE script.js) ---------- */
 const AV=['🌾','😀','🧑‍🍳','🛵','🦸','👩‍🌾','🧑‍⚕️','🐯'];
-const API='/api';
+const API=window.API_BASE_URL || '/api';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function P(){if(!S.profile)S.profile={name:'Guest User',phone:'',email:'',addr:'',diet:'any',av:'🌾',theme:'auto',id:'u'+Date.now()};return S.profile}
 function applyTheme(){const t=P().theme;if(t=='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',t)}

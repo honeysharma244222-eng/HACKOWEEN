@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: hackoween-backend
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: cd Backend && npm install
+    startCommand: cd Backend && npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_VERSION
+        value: 20.18.0
+
+  - type: web
+    name: hackoween-frontend
+    runtime: static
+    plan: free
+    staticPublishPath: ./Frontend
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://hackoween-backend.onrender.com/api/*
